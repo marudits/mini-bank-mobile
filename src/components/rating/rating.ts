@@ -3,5 +3,6 @@ export class Rating {
 	bankId: number;
 	text: string;
 	value: number;
-	name: string
+	name: string;
+	email: string;
 }

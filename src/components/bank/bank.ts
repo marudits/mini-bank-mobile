@@ -1,10 +1,17 @@
 import { Rating } from '../rating/rating';
 
-export class Bank{
+class Coordinates {
+	lat: number | string;
+	lng: number | string;
+}
+
+export class Bank {
 	
 	private id: number;
-	private name: string;
+	name: string;
 	private address: string;
+	location: Coordinates;
+	phone: string;
 	private rating: number;
 	private favourites: number;
 	private ratings: Rating[]
