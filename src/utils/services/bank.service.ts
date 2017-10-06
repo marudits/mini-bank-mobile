@@ -3,8 +3,8 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Bank } from './bank';
-import { url } from '../../config/app';
+import { Bank } from '../../components/bank/bank';
+import { url } from '../config/app';
 
 @Injectable()
 export class BankService {

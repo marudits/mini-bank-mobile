@@ -41,6 +41,39 @@ $colors: (
   dark:       #222
 );
 
+$color-admlte: (
+	red: (
+		base: #dd4c39,
+		light: #e68372,
+		dark: #d33831
+	),
+	orange: (
+		base: #f19c42,
+		light: #f5bd6e,
+		dark: #db8b3b
+	),
+	green: (
+		base: #00a65a,
+		light: #7ac494,
+		dark: #008d4c
+	),
+	blue: (
+		base: #57c0ef,
+		light: #7dd5f4,
+		dark: #4ba7d0
+	),
+	black: (
+		base: #111111,
+		light: #656565,
+		dark: #000000
+	),
+	gray: (
+		base: #d2d6de,
+		light: #e1e4e9,
+		dark: #b5bac7
+	),
+);
+
 
 // App iOS Variables
 // --------------------------------------------------
