@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -18,8 +18,9 @@ export class RatingService {
 
 	}
 
-	getList(): Promise<Rating[]>{
-		return this.http.get(this.modelUrl, {headers: this.headers})
+	getList(params: Object = null): Promise<Rating[]>{
+		let url = params ? this.modelUrl + '?filter=' + JSON.stringify(params) : this.modelUrl;
+		return this.http.get(url, {headers: this.headers})
 			.toPromise()
 			.then(response => response.json() as Rating[])
 			.catch(this.handleError);
@@ -27,10 +28,10 @@ export class RatingService {
 
 	sendRating(rating: Rating): Promise<Rating>{
 		return this.http
-		.post(this.modelUrl, {headers: this.headers}, {params: rating})
-		.toPromise()
-		.then(response => response.json() as Rating)
-		.catch(this.handleError);
+			.post(this.modelUrl, rating, {headers: this.headers})
+			.toPromise()
+			.then(response => response.json() as Rating)
+			.catch(this.handleError);
 	}
 
 	private handleError(error: any): Promise<any>{

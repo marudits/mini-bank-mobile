@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-//import { Router } from '@angular/router';
-
 
 //Component
 import { Bank } from './bank';
@@ -16,10 +14,8 @@ import { BankService } from '../../utils/services/bank.service';
 export class BankList implements OnInit {
 
 	private listItem: Bank[];
-	//private selectedBank: Bank;
 
 	constructor(
-		//private router: Router,
 		private bankService: BankService
 		){ }
 

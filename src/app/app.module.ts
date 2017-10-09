@@ -13,16 +13,22 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 //CustomPages
 import { BankPage } from '../pages/bank/bank';
+import { RatingPage } from '../pages/rating/rating';
+import { RatingFormPage } from '../pages/rating/rating-form';
 
 
 //Components
 import { BankList } from '../components/bank/bank-list.component';
+import { RatingForm } from '../components/rating/rating-form.component';
+import { RatingList } from '../components/rating/rating-list.component';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 //Services
 import { BankService } from '../utils/services/bank.service';
+import { RatingService } from '../utils/services/rating.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,11 @@ import { BankService } from '../utils/services/bank.service';
     HomePage,
     TabsPage,
     BankPage,
-    BankList
+    BankList,
+    RatingPage,
+    RatingFormPage,
+    RatingForm,
+    RatingList
   ],
   imports: [
     BrowserModule,
@@ -47,13 +57,18 @@ import { BankService } from '../utils/services/bank.service';
     HomePage,
     TabsPage,
     BankPage,
-    BankList
+    BankList,
+    RatingPage,
+    RatingFormPage,
+    RatingForm,
+    RatingList
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BankService
+    BankService,
+    RatingService
   ]
 })
 export class AppModule {}
