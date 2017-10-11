@@ -47,7 +47,7 @@ export class RatingForm implements OnInit {
 		this.rating = rating;
 	}
 
-	private validateForm(formData: Object){
+	private validateForm(formData: Object): Boolean {
 		let {bankId, email, text, value} = this.rating;
 
 		//check bankId
