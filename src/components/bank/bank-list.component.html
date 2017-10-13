@@ -5,7 +5,9 @@
 	    <ion-item class="item-content">
 	      <ion-avatar item-start class="item-content__avatar">
 	        <img src="">
-	        <span>{{item.rating}}</span>
+	        <ion-icon name="heart" class="item-content__favourites">
+	        	{{item.favourites}}
+	        </ion-icon> 
 	      </ion-avatar>
 	      <h2>
 	      	{{item.name}}
