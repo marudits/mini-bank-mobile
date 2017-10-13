@@ -1,9 +1,4 @@
-import { 
-	Component,  
-	OnChanges, OnInit, DoCheck, 
-	AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, 
-	OnDestroy 
-	} from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
@@ -22,7 +17,7 @@ import { RatingFormPage } from '../../pages/rating/rating-form';
 	selector: 'rating-list',
 	templateUrl: 'rating-list.component.html'
 })
-export class RatingList implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy{
+export class RatingList implements OnInit {
 	private listItem: Rating[];
 
 	constructor(
@@ -32,38 +27,9 @@ export class RatingList implements OnChanges, OnInit, DoCheck, AfterContentInit,
 
 	}
 
-	ngOnChanges(): void {
-		console.log('Lifecycle: OnChanges');
-	}
-
 	ngOnInit(): void{
 		this.getList();
 		console.log('Lifecycle: OnInit');
-	}
-
-	ngDoCheck(): void {
-		//this.getList();	
-		console.log('Lifecycle: DoCheck');
-	}
-
-	ngAfterContentInit(): void {
-		console.log('Lifecycle: AfterContentInit');
-	}
-
-	ngAfterContentChecked(): void {
-		//console.log('Lifecycle: AfterContentChecked');
-	}
-
-	ngAfterViewInit(): void {
-		console.log('Lifecycle: AfterViewInit');
-	}
-
-	ngAfterViewChecked(): void {
-		//console.log('Lifecycle: AfterViewChecked');
-	}
-
-	ngOnDestroy(): void {
-		console.log('Lifecycle: OnDestroy');
 	}
 
 	getList(): void {
