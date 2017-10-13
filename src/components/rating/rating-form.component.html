@@ -1,0 +1,39 @@
+<ion-list>
+
+  <ion-item>
+    <ion-label color="primary">Banks*</ion-label>
+    <ion-select [(ngModel)]="rating.bankId">
+      <ion-option *ngFor="let bank of bankList" value="{{bank.id}}" selected="{{bank.id == rating.bankId}}">{{bank.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" floating>Name</ion-label>
+    <ion-input type="text" [(ngModel)]="rating.name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" floating>Email*</ion-label>
+    <ion-input type="text" [(ngModel)]="rating.email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" floating>Review*</ion-label>
+    <ion-textarea [(ngModel)]="rating.text"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" floating>Star</ion-label>
+    <ion-range min="0" max="5" steps="1" pin="true" [(ngModel)]="rating.value">
+      <ion-icon range-left small name="star-outline"></ion-icon>
+      <ion-icon range-right name="star"></ion-icon>
+    </ion-range>
+  </ion-item>
+
+  <ion-item center>
+    <ion-row col-4 offset-4>
+      <button ion-button (click)="sendRating()">Submit</button>  
+    </ion-row>
+  </ion-item>
+
+</ion-list>

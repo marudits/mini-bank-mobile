@@ -1,0 +1,46 @@
+<div id="bank-list">
+	<h1>Bank List</h1>
+	<ion-list *ngFor="let item of listItem" class="bank-list">
+	  <ion-item-sliding class="bank-list__item">
+	    <ion-item class="item-content">
+	      <ion-avatar item-start class="item-content__avatar">
+	        <img src="">
+	        <ion-icon name="heart" class="item-content__favourites">
+	        	{{item.favourites}}
+	        </ion-icon> 
+	      </ion-avatar>
+	      <h2>
+	      	{{item.name}}
+	      	<span *ngIf="item.rating == 0">
+	      		{{item.rating}} <ion-icon name="star-outline"></ion-icon>
+	      	</span>
+
+	      	<span *ngIf="(item.rating > 0 && item.rating < 5)">
+	      		{{item.rating}} <ion-icon name="star-half"></ion-icon>
+	      	</span>
+
+	      	<span *ngIf="item.rating == 5">
+	      		{{item.rating}} <ion-icon name="star"></ion-icon>
+	      	</span>
+	      </h2>
+	      <p>{{item.address}}</p>
+	    </ion-item>
+	    <ion-item-options side="left" class="item-options__left">
+	      <button ion-button class="options-nav" (click)="action('nav', item)">
+	        <ion-icon name="navigate"></ion-icon>
+	      </button>
+	      <button ion-button class="options-call" (click)="action('call', item)">
+	        <ion-icon name="call"></ion-icon>
+	       </button>
+	    </ion-item-options>
+	    <ion-item-options side="right" class="item-options__right">
+	      <button ion-button class="options-fav" (click)="action('fav', item)">
+	        <ion-icon name="heart"></ion-icon>
+	       </button>
+	      <button ion-button class="options-rev" (click)="action('rev', item)">
+	        <ion-icon name="create"></ion-icon>
+	       </button>
+	    </ion-item-options>
+	  </ion-item-sliding>
+	</ion-list>
+</div>

@@ -1,0 +1,66 @@
+.bank-list__item {
+	.item-content {
+		h2 {
+			color: color($color-admlte, green, base);
+
+			&:hover {
+				color: color($color-admlte, green, dark);
+			}
+
+			span {
+				color: color($color-admlte, orange, base);
+			}
+		}
+
+		&__favourites {
+			color: color($color-admlte, red, light);
+			margin-top: 6px;
+		}
+	}
+
+	
+	.options {
+
+		color: white;
+		font-weight: 600;
+		text-align: center;
+
+
+		&-nav {
+			background-color: color($color-admlte, gray, light);
+			
+			width: 60px;
+			font-size: 2em;
+			padding-top: 12px;
+		}
+
+		&-call {
+			background-color: color($color-admlte, green, base);
+			
+			width: 60px;
+			font-size: 2em;
+			padding-top: 12px;
+		}
+
+		&-fav {
+			background-color: color($color-admlte, red, light);
+			
+			width: 60px;
+			font-size: 2em;
+			padding-top: 12px;
+		}
+
+		&-rev {
+			background-color: color($color-admlte, blue, light);
+			
+			width: 60px;
+			font-size: 2em;
+			padding-top: 12px;
+		}
+	}
+
+
+}
+
+
+	
