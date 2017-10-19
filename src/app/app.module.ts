@@ -2,6 +2,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
+//ionic native
+import { CallNumber } from '@ionic-native/call-number';
+
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
@@ -72,7 +75,8 @@ import { EmployeeService } from '../utils/services/employee.service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BankService,
     RatingService,
-    EmployeeService
+    EmployeeService,
+    CallNumber
   ]
 })
 export class AppModule {}
