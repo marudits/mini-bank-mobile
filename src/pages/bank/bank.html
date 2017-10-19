@@ -5,5 +5,14 @@
 </ion-header>
 
 <ion-content padding>
-  <bank-list></bank-list>
+	<ion-refresher (ionRefresh)="getList($event)">
+		<ion-refresher-content
+			pullingIcon="arrow-dropdown"
+			pullingText="Pull to refresh"
+			refreshingSpinner="circles"
+			refreshingText="Refreshing...">
+	    </ion-refresher-content>
+	</ion-refresher>
+	
+  	<bank-list [listItem]="listItem"></bank-list>
 </ion-content>

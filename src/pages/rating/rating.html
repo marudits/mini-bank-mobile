@@ -5,6 +5,13 @@
 </ion-header>
 
 <ion-content padding>
-	<h4>Rating</h4>
-	<rating-list></rating-list>
+	<ion-refresher (ionRefresh)="getList($event)">
+		<ion-refresher-content
+			pullingIcon="arrow-dropdown"
+			pullingText="Pull to refresh"
+			refreshingSpinner="circles"
+			refreshingText="Refreshing...">
+	    </ion-refresher-content>
+	</ion-refresher>
+	<rating-list [listItem]="listItem"></rating-list>
 </ion-content>
