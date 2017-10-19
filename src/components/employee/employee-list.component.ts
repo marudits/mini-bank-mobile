@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemSliding } from 'ionic-angular';
 
+//ionic native
+import { CallNumber } from '@ionic-native/call-number';
+
 //Component
 import { Employee } from './employee';
 
@@ -17,7 +20,10 @@ export class EmployeeList implements OnInit {
 	private listItem: Employee[];
 	private query: string;
 
-	constructor(private employeeService: EmployeeService){}
+	constructor(
+		private employeeService: EmployeeService,
+		private callNumber: CallNumber
+		){}
 
 	ngOnInit(): void {
 		const params = {
@@ -40,6 +46,9 @@ export class EmployeeList implements OnInit {
 		switch (type) {
 			case 'call':
 				console.log('Call to: ', item.phone);
+				this.callNumber.callNumber(item.phone, true)
+					.then(() => console.log('Launched dialer!'))
+					.catch(() => console.error('Error launching dialer'));
 				break;
 			case 'mail':
 				console.log('Mail to: ', item.email);
