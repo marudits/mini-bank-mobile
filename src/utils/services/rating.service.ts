@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
+import * as qs from 'qs';
 
 import { Rating } from '../../components/rating/rating';
 import { url } from '../config/app';
@@ -19,7 +20,7 @@ export class RatingService {
 	}
 
 	getList(params: Object = null): Promise<Rating[]>{
-		let url = params ? this.modelUrl + '?filter=' + JSON.stringify(params) : this.modelUrl;
+		let url = params ? this.modelUrl + '?' + qs.stringify({filter: params}) : this.modelUrl;
 		return this.http.get(url, {headers: this.headers})
 			.toPromise()
 			.then(response => response.json() as Rating[])
