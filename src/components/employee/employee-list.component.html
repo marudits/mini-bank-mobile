@@ -1,0 +1,32 @@
+<div id="employee-list">
+	<ion-searchbar
+	  [(ngModel)]="query"
+	  [showCancelButton]="shouldShowCancel"
+	  (ionInput)="onSearchInput($event)"
+	  >
+	</ion-searchbar>
+
+	<ion-list *ngFor="let item of listItem" class="employee-list">
+	  <ion-item-sliding class="employee-list__item" #ionItemSliding>
+	    <ion-item #ionItem class="item-content">
+	      <ion-avatar item-start class="item-content__avatar">
+	        <img src="">
+	      </ion-avatar>
+	      <h2 class="item-content__name">
+	      	{{item.name}}
+	      </h2>
+	      <p>
+	      	<span class="item-content__department">{{item.department.name}}</span> - <span class="item-content__position">{{item.position.name}}</span>
+	      </p>
+	    </ion-item>
+	    <ion-item-options side="right" class="item-options__right">
+	      <button ion-button class="options-call" (click)="action('call', item, ionItemSliding)">
+	        <ion-icon name="call"></ion-icon>
+	       </button>
+	      <button ion-button class="options-mail" (click)="action('mail', item, ionItemSliding)">
+	        <ion-icon name="mail"></ion-icon>
+	       </button>
+	    </ion-item-options>
+	  </ion-item-sliding>
+	</ion-list>
+</div>
