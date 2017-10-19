@@ -1,4 +1,4 @@
 export var url = {
-	api: 'http://localhost:3000/api/',
+	api: 'https://mini-bank-api.herokuapp.com/api/',
 	mobile: 'localhost:8100'
 };

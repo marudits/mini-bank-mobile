@@ -21,7 +21,7 @@ import { RatingFormPage } from '../pages/rating/rating-form';
 import { BankList } from '../components/bank/bank-list.component';
 import { RatingForm } from '../components/rating/rating-form.component';
 import { RatingList } from '../components/rating/rating-list.component';
-
+import { EmployeeList } from '../components/employee/employee-list.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,6 +29,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //Services
 import { BankService } from '../utils/services/bank.service';
 import { RatingService } from '../utils/services/rating.service';
+import { EmployeeService } from '../utils/services/employee.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { RatingService } from '../utils/services/rating.service';
     RatingPage,
     RatingFormPage,
     RatingForm,
-    RatingList
+    RatingList,
+    EmployeeList
   ],
   imports: [
     BrowserModule,
@@ -61,14 +63,16 @@ import { RatingService } from '../utils/services/rating.service';
     RatingPage,
     RatingFormPage,
     RatingForm,
-    RatingList
+    RatingList,
+    EmployeeList
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BankService,
-    RatingService
+    RatingService,
+    EmployeeService
   ]
 })
 export class AppModule {}

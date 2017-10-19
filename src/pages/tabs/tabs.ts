@@ -11,6 +11,7 @@ import { BankList } from '../../components/bank/bank-list.component';
 //Services
 import { BankService } from '../../utils/services/bank.service';
 
+
 @Component({
   templateUrl: 'tabs.html'
 })
