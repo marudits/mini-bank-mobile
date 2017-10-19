@@ -31,4 +31,12 @@ export class BankService {
 
 		return Promise.reject(error.message || error);
 	}
+
+	favouriteBank(bank: Bank): Promise<Bank>{
+		return this.http
+			.patch(this.modelUrl + '/favourite', {bankId: bank.id}, {headers: this.headers})
+			.toPromise()
+			.then(res => res.json().data as Bank)
+			.catch(this.handleError);
+	}
 }
