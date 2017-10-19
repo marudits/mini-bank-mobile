@@ -46,6 +46,8 @@ export class BankList {
 				break;
 			case 'fav':
 				console.log(`Favourite ${item.name}`);
+				this.bankService.favouriteBank(item)
+					.then(() => console.log('Favourite was successfully incremented.'))
 				break;
 			case 'rev':
 				console.log(`Make a review of ${item.name}`)
