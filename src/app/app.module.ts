@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 
 //ionic native
 import { CallNumber } from '@ionic-native/call-number';
+import { EmailComposer } from '@ionic-native/email-composer';
 
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -76,7 +77,8 @@ import { EmployeeService } from '../utils/services/employee.service';
     BankService,
     RatingService,
     EmployeeService,
-    CallNumber
+    CallNumber,
+    EmailComposer
   ]
 })
 export class AppModule {}
