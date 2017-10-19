@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Platform } from 'ionic-angular';
 
 //ionic native
 import { CallNumber } from '@ionic-native/call-number';
@@ -20,7 +21,8 @@ export class BankList implements OnInit {
 
 	constructor(
 		private bankService: BankService,
-		private callNumber: CallNumber
+		private callNumber: CallNumber,
+		private platform: Platform
 		){ }
 
 	ngOnInit(): void {
@@ -30,10 +32,18 @@ export class BankList implements OnInit {
 	action(type: string, item: Bank): void{
 		switch(type){
 			case 'nav':
-				console.log(`Navigate to ${item.location.lat},${item.location.lng}`)
+				const destination = `${item.location.lat},${item.location.lng}`
+				
+				if(this.platform.is('ios')){
+					window.open('maps://?q=' + destination, '_system')
+				} else if(this.platform.is('android')) {
+					let label = encodeURI('Pinned Location');
+					window.open('geo:0,0?q=' + destination + '(' + label + ')', '_system');
+				} else {
+					window.open(`http://maps.google.com?q=${destination}`)
+				}
 				break;
 			case 'call':
-				console.log(`Call to phone number ${item.phone}`);
 				this.callNumber.callNumber(item.phone, true)
 					.then(() => console.log('Launched dialer!'))
 					.catch(() => console.error('Error launching dialer'));

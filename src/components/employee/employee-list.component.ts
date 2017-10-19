@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemSliding } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 
 //ionic native
 import { CallNumber } from '@ionic-native/call-number';
@@ -27,7 +28,8 @@ export class EmployeeList implements OnInit {
 	constructor(
 		private employeeService: EmployeeService,
 		private callNumber: CallNumber,
-		private emailComposer: EmailComposer
+		private emailComposer: EmailComposer,
+		private platform: Platform
 		){
 
 		this.emailComposer.addAlias(ANDROID.email.alias.name, ANDROID.email.alias.source);
@@ -53,26 +55,27 @@ export class EmployeeList implements OnInit {
 	action(type: string, item: Employee, ionItemSliding: ItemSliding): void {
 		switch (type) {
 			case 'call':
-				console.log('Call to: ', item.phone);
 				this.callNumber.callNumber(item.phone, true)
 					.then(() => console.log('Launched dialer!'))
 					.catch(() => console.error('Error launching dialer'));
 				break;
 			case 'mail':
-				console.log('Mail to: ', item.email);
-				this.emailComposer.open({
-					app: ANDROID.email.alias.name,
+				let email = {
 					to: item.email,
-					subject: `HLBB`,
-					body: `
-						<h3>Hello, ${item.name}</h3>
-						<br />
-						<br />
-						<br />
-						<small><em>Copyright &copy; ${CREDENTIAL.company.abbrv} 2017 &amp; Powered by ionic-native</em></small> 
-						`,
+					subject: `${CREDENTIAL.company.abbrv}`,
+					body: `Hello, ${item.name}`,
 					isHtml: true
-				});
+				}
+
+				if(this.platform.is('android')){
+					this.emailComposer.open({
+						app: ANDROID.email.alias.name,
+						...email
+					});
+				} else {
+					window.open(`mailto:${email.to}?subject=${email.subject}&body=${email.body}`);
+				}
+				
 				break;
 			default:
 				break;
@@ -88,9 +91,6 @@ export class EmployeeList implements OnInit {
 	}
 
 	private onSearchInput(e: any): void{
-		console.log('onSearchInput: ', e);
-		console.log('query: ', this.query);
-
 		let params = {
 			where: {
 				name: {
