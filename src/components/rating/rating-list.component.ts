@@ -1,13 +1,8 @@
-import { Component,  OnInit } from '@angular/core';
-
+import { Component,  Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+//Component
 import { Rating } from './rating';
-
-import { RatingService } from '../../utils/services/rating.service';
-
-//helpers
-import { calculateDiffTime } from '../../utils/helpers/dateAndTime';
 
 //pages
 import { RatingFormPage } from '../../pages/rating/rating-form';
@@ -17,34 +12,13 @@ import { RatingFormPage } from '../../pages/rating/rating-form';
 	selector: 'rating-list',
 	templateUrl: 'rating-list.component.html'
 })
-export class RatingList implements OnInit {
-	private listItem: Rating[];
+export class RatingList {
+	@Input()listItem: Rating[];
 
 	constructor(
-		private ratingService: RatingService,
 		private navController: NavController
 		){
 
-	}
-
-	ngOnInit(): void{
-		this.getList();
-		console.log('Lifecycle: OnInit');
-	}
-
-	getList(): void {
-		let params = {include: 'bank', order: 'createdAt DESC'};
-		this.ratingService.getList(params)
-			.then((items) => {
-				let newItems = [];
-				for(let item of items){
-					let newItem = Object.assign({}, item, {bank: item.bank});
-					newItem.createdAt = calculateDiffTime(item.createdAt);
-					newItems.push(newItem);
-				}
-
-				this.listItem = newItems;
-			});
 	}
 
 	navPage(page: string): void{

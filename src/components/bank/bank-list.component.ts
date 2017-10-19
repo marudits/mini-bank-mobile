@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Platform } from 'ionic-angular';
 
 //ionic native
@@ -15,19 +15,15 @@ import { BankService } from '../../utils/services/bank.service';
 	templateUrl: 'bank-list.component.html'
 })
 
-export class BankList implements OnInit {
+export class BankList {
 
-	private listItem: Bank[];
+	@Input()listItem: Bank[];
 
 	constructor(
 		private bankService: BankService,
 		private callNumber: CallNumber,
 		private platform: Platform
 		){ }
-
-	ngOnInit(): void {
-		this.getList();
-	}
 
 	action(type: string, item: Bank): void{
 		switch(type){
@@ -55,11 +51,5 @@ export class BankList implements OnInit {
 				console.log(`Make a review of ${item.name}`)
 				break;
 		}
-	}
-
-	getList(): void {
-		this.bankService.getList().then((items) => {
-			this.listItem = items;
-		});
 	}
 }

@@ -84,7 +84,7 @@ export class EmployeeList implements OnInit {
 		ionItemSliding.close();
 	}
 
-	getList(params: Object = null): void {
+	private getList(params: Object = null): void {
 		
 		this.employeeService.getList(params)
 			.then(items => this.listItem = items)
