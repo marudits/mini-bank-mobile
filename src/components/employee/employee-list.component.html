@@ -10,7 +10,8 @@
 	  <ion-item-sliding class="employee-list__item" #ionItemSliding>
 	    <ion-item #ionItem class="item-content">
 	      <ion-avatar item-start class="item-content__avatar">
-	        <img src="">
+	        <img *ngIf="item.img" src="{{item.img}}" class="avatar-img">
+	        <ion-icon *ngIf="!item.img" name="contact" class="avatar-icon"></ion-icon>
 	      </ion-avatar>
 	      <h2 class="item-content__name">
 	      	{{item.name}}
