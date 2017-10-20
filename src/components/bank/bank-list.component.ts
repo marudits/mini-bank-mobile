@@ -55,7 +55,6 @@ export class BankList {
 				break;
 			case 'fav':
 				console.log(`Favourite ${item.name}`);
-				let that = this;
 				this.bankService.favouriteBank(item)
 					.then(() => this.showToast({message: 'Successfully favourite this bank'}))
 				break;

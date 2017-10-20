@@ -14,4 +14,10 @@
 	    </ion-refresher-content>
 	</ion-refresher>
 	<rating-list [listItem]="listItem"></rating-list>
+
+	<ion-fab bottom right (click)="navPage('rating-form')">
+		<button ion-fab mini>
+			<ion-icon name="add"></ion-icon>
+		</button>
+	</ion-fab>
 </ion-content>

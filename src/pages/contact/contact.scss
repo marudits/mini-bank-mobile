@@ -12,6 +12,14 @@ page-contact {
 		&__department {
 			font-weight: 600;
 		}
+
+		&__avatar {
+
+			.avatar-icon {
+				font-size: 3.3em;
+				color: color($color-admlte, blue, base)
+			}
+		}
 	}
 
 	.options {
