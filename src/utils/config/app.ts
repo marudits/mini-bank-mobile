@@ -14,3 +14,7 @@ export var CREDENTIAL = {
 		email: 'marudits@gmail.com'
 	}
 }
+
+export var KEY = {
+	gmaps: 'AIzaSyAB9HTFdhaLVNYTk2S5AgtGqHasQDMiSCk'
+}

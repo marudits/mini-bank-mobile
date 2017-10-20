@@ -4,12 +4,15 @@ import { NavController } from 'ionic-angular';
 //Service
 import { BankService } from '../../utils/services/bank.service';
 
+//Component
+import { Bank } from '../../components/bank/bank';
+
 @Component({
 	selector: 'page-bank',
 	templateUrl: './bank.html'
 })
 export class BankPage implements OnInit{
-	private listItem;
+	private listItem: Bank[];
 
 	constructor(public navCtrl: NavController, private bankService: BankService){
 

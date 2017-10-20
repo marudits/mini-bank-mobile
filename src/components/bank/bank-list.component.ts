@@ -10,6 +10,9 @@ import { Bank } from './bank';
 //Service
 import { BankService } from '../../utils/services/bank.service';
 
+//Config
+import { KEY } from '../../utils/config/app';
+
 @Component({
 	selector: 'bank-list',
 	templateUrl: 'bank-list.component.html'
@@ -18,6 +21,7 @@ import { BankService } from '../../utils/services/bank.service';
 export class BankList {
 
 	@Input()listItem: Bank[];
+	private gmapsKey = KEY.gmaps;
 
 	constructor(
 		private bankService: BankService,

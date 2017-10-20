@@ -1,45 +1,87 @@
 <div id="bank-list">
 	<ion-list *ngFor="let item of listItem" class="bank-list">
-	  <ion-item-sliding class="bank-list__item">
-	    <ion-item class="item-content">
-	      <ion-avatar item-start class="item-content__avatar">
-	        <img src="">
-	        <ion-icon name="heart" class="item-content__favourites">
-	        	{{item.favourites}}
-	        </ion-icon> 
-	      </ion-avatar>
-	      <h2>
-	      	{{item.name}}
-	      	<span *ngIf="item.rating == 0">
-	      		{{item.rating}} <ion-icon name="star-outline"></ion-icon>
-	      	</span>
+		<ion-card class="bank-list__item">
+			<img src="https://maps.googleapis.com/maps/api/streetview?size=400x200&location={{item.location.lat}},{{item.location.lng}}&heading=151.78&pitch=-0.76&&key={{gmapsKey}}" class="item-img">
+			<ion-fab right top class="item-fab">
+				<button ion-fab class="item-fab__options">
+					<ion-icon name="arrow-dropleft-circle"></ion-icon>
+				</button>
+				<ion-fab-list side="left">
+					<button ion-fab class="item-fab__navigate" (click)="action('nav', item)">
+						<ion-icon name="navigate"></ion-icon>
+					</button>
+			      	<button ion-fab class="item-fab__call" (click)="action('call', item)">
+			      		<ion-icon name="call"></ion-icon>
+			      	</button>
+			      	<button ion-fab class="item-fab__review" (click)="action('rev', item)">
+			      		<ion-icon name="create"></ion-icon>
+			      	</button>
+			      	<button ion-fab class="item-fab__favourite" (click)="action('fav', item)">
+			      		<ion-icon name="heart"></ion-icon>
+			      	</button>
+			    </ion-fab-list>
+		  	</ion-fab>
 
-	      	<span *ngIf="(item.rating > 0 && item.rating < 5)">
-	      		{{item.rating}} <ion-icon name="star-half"></ion-icon>
-	      	</span>
+		  	<ion-item class="item-content">
+		    	<h2 class="item-content__name">{{item.name}}</h2>
+		    	<p class="item-content__address">{{item.address}}</p>
 
-	      	<span *ngIf="item.rating == 5">
-	      		{{item.rating}} <ion-icon name="star"></ion-icon>
-	      	</span>
-	      </h2>
-	      <p>{{item.address}}</p>
-	    </ion-item>
-	    <ion-item-options side="right" class="item-options__left">
-	      <button ion-button class="options-nav" (click)="action('nav', item)">
-	        <ion-icon name="navigate"></ion-icon>
-	      </button>
-	      <button ion-button class="options-call" (click)="action('call', item)">
-	        <ion-icon name="call"></ion-icon>
-	       </button>
-	    </ion-item-options>
-	    <ion-item-options side="left" class="item-options__right">
-	      <button ion-button class="options-fav" (click)="action('fav', item)">
-	        <ion-icon name="heart"></ion-icon>
-	       </button>
-	      <button ion-button class="options-rev" (click)="action('rev', item)">
-	        <ion-icon name="create"></ion-icon>
-	       </button>
-	    </ion-item-options>
-	  </ion-item-sliding>
+		    	<ion-grid class="item-content__schedule">
+		    		<ion-row class="schedule-days">
+		    			<ion-icon name="calendar" item-start></ion-icon>
+		    			<span>{{item.officeDaysFormatted}}</span>
+		    		</ion-row>
+		    		<ion-row class="schedule-hours">
+		    			<ion-icon name="time" item-start></ion-icon>
+		    			<span>{{item.officeHoursFormatted}}</span>
+		    			<span *ngIf="item.status" class="schedule-hours__status open">
+		    				(Open)
+		    			</span>
+		    			<span *ngIf="!item.status" class="schedule-hours__status close">
+		    				(Closed)
+		    			</span>
+		    		</ion-row>
+		    	</ion-grid>
+
+		  	</ion-item>
+
+		  	<ion-item class="item-footer">
+		  		<ion-row align-item-center>
+		  			<ion-col col-4>
+		  				<span class="item-footer__favourites">
+						    <ion-icon name="heart" class="icon-favourites"></ion-icon>
+					        &nbsp;{{item.favourites}}
+				    	</span>		
+		  			</ion-col>
+		  			<ion-col col-4>
+		  				<span class="item-footer__rating">
+				    		<span *ngIf="item.rating == 0">
+					      		<ion-icon name="star-outline" class="icon-rating"></ion-icon>
+					      		&nbsp;{{item.rating}} 
+					      	</span>
+
+					      	<span *ngIf="(item.rating > 0 && item.rating < 5)">
+					      		<ion-icon name="star-half"></ion-icon>
+					      		&nbsp;{{item.rating}} 
+					      	</span>
+
+					      	<span *ngIf="item.rating == 5">
+					      		<ion-icon name="star"></ion-icon>
+					      		&nbsp;{{item.rating}}
+					      	</span>
+				    	</span>
+		  			</ion-col>
+		  			<ion-col col-4>
+		  				<span class="item-footer__reviewer">
+		  					<ion-icon name="create" class="icon-reviewer"></ion-icon>
+						        &nbsp;{{item.ratings.length}}
+		  				</span>
+		  			</ion-col>	
+		  		</ion-row>
+		  		
+		    	
+		  	</ion-item>
+
+		</ion-card>
 	</ion-list>
 </div>
