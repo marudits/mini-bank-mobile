@@ -7,7 +7,7 @@
 					<span>{{item.value}}</span>
 				</ion-col>
 				<ion-col col-11 class="header-identity">
-					<h3 class="header-identity__name">{{item.name || 'Anonymous'}}</h3>
+					<h3 class="header-identity__name">{{item.bank.name}}</h3>
 					<p class="header-identity__createdat">{{item.createdAtFormatted}}</p>
 				</ion-col>	
 			</ion-row>
@@ -16,15 +16,9 @@
 	  	<ion-card-content class="rating-list__content">
 	  		<blockquote>
 	  			<p>&ldquo;{{item.text}}&rdquo;</p>
-	  			<small>&ndash;{{item.bank.name}}</small>
+	  			<small>&ndash;&nbsp;{{item.name || 'Anonymous'}}</small>
 	  		</blockquote>
 	  	</ion-card-content>
 	</ion-card>
-
-	<ion-fab bottom right (click)="navPage('rating-form')" class="rating-fab">
-		<button ion-fab mini>
-			<ion-icon name="add"></ion-icon>
-		</button>
-	</ion-fab>
-
+	
 </div>
