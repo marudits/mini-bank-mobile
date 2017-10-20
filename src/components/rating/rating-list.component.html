@@ -1,53 +1,30 @@
-<div *ngFor="let item of listItem" class="rating-list" cache-view="false">
-	<ion-card>
-	  <ion-item class="rating-list__avatar">
-	    <ion-avatar item-start>
-	      <img src="">
-	    </ion-avatar>
-	    <h2>{{item.name || 'Anonymous'}}</h2>
-	    <p>{{item.createdAt}}</p>
-	  </ion-item>
+<div id="rating-list">
 
-	  <ion-card-content class="rating-list__content">
-	  	<ion-row>
-		    <ion-col col-2 class="content-value">
-		    	<span>{{item.value}}</span>
-		    	<span>of 5</span>
-		    </ion-col>
-		    <ion-col col-10 class="content-text">
-		    	<p>{{item.text}}</p>
-		    </ion-col>
-	    </ion-row>
-	  </ion-card-content>
+	<ion-card *ngFor="let item of listItem" class="rating-list" cache-view="false">
+		<ion-item class="rating-list__header">
+			<ion-row>
+				<ion-col col-1 class="header-value">
+					<span>{{item.value}}</span>
+				</ion-col>
+				<ion-col col-11 class="header-identity">
+					<h3 class="header-identity__name">{{item.name || 'Anonymous'}}</h3>
+					<p class="header-identity__createdat">{{item.createdAtFormatted}}</p>
+				</ion-col>	
+			</ion-row>
+		</ion-item>
 
-	  <ion-row class="rating-list__bank">
-	  	<ion-col col-7 class="bank-name">
-	      <button ion-button icon-left clear small>
-	        <ion-note>
-	        	{{item.bank.name}}
-	        </ion-note>
-	      </button>
-	    </ion-col>
-	    <ion-col col-2 class="bank-fav">
-	      <button ion-button icon-left clear small>
-	        <ion-icon name="heart"></ion-icon>
-	        <span>{{item.bank.favourites}}</span>
-	      </button>
-	    </ion-col>
-	    <ion-col col-3 class="bank-star">
-	      <button ion-button icon-left clear small>
-	        <ion-icon name="star"></ion-icon>
-	        <span>{{item.bank.rating}}</span>
-	      </button>
-	    </ion-col>
-	    
-	  </ion-row>
-
+	  	<ion-card-content class="rating-list__content">
+	  		<blockquote>
+	  			<p>&ldquo;{{item.text}}&rdquo;</p>
+	  			<small>&ndash;{{item.bank.name}}</small>
+	  		</blockquote>
+	  	</ion-card-content>
 	</ion-card>
 
 	<ion-fab bottom right (click)="navPage('rating-form')" class="rating-fab">
 		<button ion-fab mini>
 			<ion-icon name="add"></ion-icon>
 		</button>
-  	</ion-fab>
+	</ion-fab>
+
 </div>
