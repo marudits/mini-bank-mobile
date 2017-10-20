@@ -1,37 +1,45 @@
 .rating-list {
 	
-	&__avatar {
+	&__header {
 
+		.label {
+			margin-top: 6px;
+		}
+
+		.header-value {
+			padding: 0px;
+
+			span {
+				color: color($color-admlte, orange, base);
+				font-size: 2.4em;
+			}	
+		}
+
+		.header-identity {
+			margin-top: 3px;
+		}
 	}
 
 	&__content {
 
-		.content {
+		blockquote {
+			border-left: 5px solid color($color-admlte, gray, base);
+			margin: 0px;
 
-			&-text {
+			p {
+				margin-left: 9px;
 				color: color($color-admlte, black, base);
+				font-size: 1.2em;
 			}
 
-			&-value {
-
-				span:first-child {
-					font-size: 2.5em;
-					font-weight: 500;
-					text-align: center;
-					color: color($color-admlte, orange, base);	
-				}
-
-				span:last-child {
-					color: color($color-admlte, gray, dark);
-					font-size: 0.8em
-				}
-				
+			small {
+				margin-left: 9px;
+				color: color($color-admlte, black, light);
+				font-style: italic;
+				font-size: 0.8em;	
 			}
 		}
-	}
-
-	&__bank {
-
+		
 	}
 }
 

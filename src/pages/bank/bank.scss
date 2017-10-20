@@ -5,22 +5,129 @@
 }
 
 .bank-list__item {
+	position: relative;
+
+	.item-fab {
+		color: white;
+
+		&__options {
+			color: color($color-admlte, black, base);
+			background-color: color($color-admlte, gray, light);
+			opacity: 0.8;
+		}
+		
+		&__call {
+			color: white;
+			background-color: color($color-admlte, green, base);
+		}
+
+		&__navigate {
+			color: white;
+			background-color: color($color-admlte, blue, base);
+		}
+
+		&__review {
+			color: white;
+			background-color: color($color-admlte, orange, base);
+		}
+
+		&__favourite {
+			color: white;
+			background-color: color($color-admlte, red, light);
+		}
+	}
+
 	.item-content {
+
+		.label {
+			margin-bottom: 0px;
+		}
+
 		h2 {
 			color: color($color-admlte, green, base);
 
 			&:hover {
 				color: color($color-admlte, green, dark);
 			}
+		}
 
-			span {
-				color: color($color-admlte, orange, base);
+		p {
+			color: color($color-admlte, black, base);
+		}
+
+		&__schedule {
+
+			padding-left: 0px;
+
+			.schedule-days {
+				padding-left: 0px;
+				color: color($color-admlte, black, light);
+				margin-bottom: 6px;
+
+				.icon {
+					font-size: 2rem;
+					margin-top: 0px;
+					margin-bottom: 0px;
+				}
+
+				span {
+					padding-top: 3px;
+    				font-size: 1.4rem;
+				}
 			}
+
+			.schedule-hours {
+				padding-left: 0px;
+				color: color($color-admlte, black, light);
+
+				.icon {
+					font-size: 2rem;
+					margin-top: 0px;
+					margin-bottom: 0px;
+				}
+
+				span {
+					padding-top: 3px;
+    				font-size: 1.4rem;
+				}
+
+				&__status {
+					margin-left: 6px;
+					font-size: 0.8em;
+					font-style: italic;
+
+					&.open {
+						color: color($color-admlte, green, base);
+					}
+
+					&.close {
+						color: color($color-admlte, gray, dark);
+					}
+				}
+			}
+		}
+	}
+
+	.item-footer {
+		font-size: 1em;
+
+		.col {
+			text-align: center;
+			border: 1px solid color($color-admlte, gray, light);
+			border-radius: 3px;
 		}
 
 		&__favourites {
 			color: color($color-admlte, red, light);
-			margin-top: 6px;
+			margin-right: 12px;
+		}
+
+		&__rating {
+			color: color($color-admlte, orange, base);
+		}
+
+		&__reviewer {
+			color: color($color-admlte, blue, base);
 		}
 	}
 
@@ -36,7 +143,7 @@
 			background-color: color($color-admlte, gray, light);
 			
 			width: 60px;
-			font-size: 2em;
+			font-size: 1.5em;
 			padding-top: 12px;
 		}
 
@@ -44,7 +151,7 @@
 			background-color: color($color-admlte, green, base);
 			
 			width: 60px;
-			font-size: 2em;
+			font-size: 1.5em;
 			padding-top: 12px;
 		}
 
@@ -52,7 +159,7 @@
 			background-color: color($color-admlte, red, light);
 			
 			width: 60px;
-			font-size: 2em;
+			font-size: 1.5em;
 			padding-top: 12px;
 		}
 
@@ -60,7 +167,7 @@
 			background-color: color($color-admlte, blue, light);
 			
 			width: 60px;
-			font-size: 2em;
+			font-size: 1.5em;
 			padding-top: 12px;
 		}
 	}
