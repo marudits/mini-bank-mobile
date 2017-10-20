@@ -4,6 +4,9 @@ import { NavController } from 'ionic-angular';
 //Service
 import { RatingService } from '../../utils/services/rating.service';
 
+//pages
+import { RatingFormPage } from '../../pages/rating/rating-form';
+
 @Component({
 	selector: 'page-rating',
 	templateUrl: './rating.html'
@@ -11,7 +14,7 @@ import { RatingService } from '../../utils/services/rating.service';
 export class RatingPage implements OnInit {
 	private listItem;
 
-	constructor(public navCtrl: NavController, private ratingService: RatingService){
+	constructor(public navController: NavController, private ratingService: RatingService){
 		
 	}
 
@@ -30,6 +33,18 @@ export class RatingPage implements OnInit {
 				}
 
 			});
+	}
+
+	
+	navPage(page: string): void{
+		switch (page) {
+			case "rating-form":
+				this.navController.push(RatingFormPage, {item: {}});
+				break;
+			default:
+				// code...
+				break;
+		}
 	}
 
 }
