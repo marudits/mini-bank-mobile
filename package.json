@@ -9,7 +9,8 @@
         "build": "ionic-app-scripts build",
         "lint": "ionic-app-scripts lint",
         "ionic:build": "ionic-app-scripts build",
-        "ionic:serve": "ionic-app-scripts serve"
+        "ionic:serve": "ionic-app-scripts serve",
+        "start": "ionic-app-scripts serve"
     },
     "dependencies": {
         "@angular/common": "4.4.3",
@@ -20,6 +21,7 @@
         "@angular/http": "4.4.3",
         "@angular/platform-browser": "4.4.3",
         "@angular/platform-browser-dynamic": "4.4.3",
+        "@ionic/app-scripts": "3.0.0",
         "@ionic-native/call-number": "^4.3.2",
         "@ionic-native/core": "4.3.0",
         "@ionic-native/email-composer": "^4.3.2",
@@ -45,7 +47,6 @@
         "zone.js": "0.8.18"
     },
     "devDependencies": {
-        "@ionic/app-scripts": "3.0.0",
         "typescript": "2.3.4"
     },
     "description": "An Ionic project",
