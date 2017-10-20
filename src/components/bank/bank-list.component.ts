@@ -1,11 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { NavController, Platform, ToastController  } from 'ionic-angular';
 
 //ionic native
 import { CallNumber } from '@ionic-native/call-number';
 
 //Component
 import { Bank } from './bank';
+
+//Pages
+import { RatingFormPage } from '../../pages/rating/rating-form';
 
 //Service
 import { BankService } from '../../utils/services/bank.service';
@@ -26,7 +29,9 @@ export class BankList {
 	constructor(
 		private bankService: BankService,
 		private callNumber: CallNumber,
-		private platform: Platform
+		private platform: Platform,
+		private toastController: ToastController,
+		private navController: NavController
 		){ }
 
 	action(type: string, item: Bank): void{
@@ -50,12 +55,23 @@ export class BankList {
 				break;
 			case 'fav':
 				console.log(`Favourite ${item.name}`);
+				let that = this;
 				this.bankService.favouriteBank(item)
-					.then(() => console.log('Favourite was successfully incremented.'))
+					.then(() => this.showToast({message: 'Successfully favourite this bank'}))
 				break;
 			case 'rev':
-				console.log(`Make a review of ${item.name}`)
+				console.log(`Make a review of ${item.name}`);
+				this.navController.push(RatingFormPage, {item: item});
 				break;
 		}
+	}
+
+	private showToast(params): void {
+		let defaultParams = {
+			message: 'Message not set',
+			duration: 1500
+		}
+		let toast = this.toastController.create(Object.assign({}, defaultParams, params));
+		toast.present();
 	}
 }
